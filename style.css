@@ -10,6 +10,10 @@ body {
     overflow: hidden;
 }
 
-#myCanvas {
+#carCanvas {
     background-color: #ddd;
+}
+
+#networkCanvas {
+    background-color: #333;
 }
