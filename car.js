@@ -8,7 +8,7 @@ class Car {
         this.speed = 0;
         this.acceleration = 0.2;
         this.maxSpeed = maxSpeed;
-        this.friction = 0.09;
+        this.friction = 0.05;
         this.angle = 0;
 
         this.useBrain = controlType == "AI";
@@ -120,7 +120,7 @@ class Car {
         this.y -= Math.cos(this.angle) * this.speed;
     }
 
-    draw(ctx, color) {
+    draw(ctx, color, drawSensor = false) {
         if (this.damaged) {
             ctx.fillStyle = 'gray';
         } else {
@@ -133,7 +133,7 @@ class Car {
         }
         ctx.fill();
 
-        if (this.sensor)
+        if (this.sensor && drawSensor)
             this.sensor.draw(ctx);
     }
 }

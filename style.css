@@ -6,8 +6,28 @@ body {
     line-height: 1.5;
     color: #333;
     background: #ccc;
-    text-align: center;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#verticalButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ddd;
 }
 
 #carCanvas {
