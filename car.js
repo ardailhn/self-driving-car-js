@@ -10,7 +10,7 @@ class Car {
         this.maxSpeed = maxSpeed;
         this.friction = 0.05;
         this.angle = 0;
-
+        this.damaged = false;
         this.useBrain = controlType == "AI";
 
         if (controlType != "DUMMY") {
@@ -81,7 +81,6 @@ class Car {
         if (this.controls.forward) {
             this.speed += this.acceleration;
         }
-
         if (this.controls.reverse) {
             this.speed -= this.acceleration;
         }
@@ -89,19 +88,16 @@ class Car {
         if (this.speed > this.maxSpeed) {
             this.speed = this.maxSpeed;
         }
-
-        if (this.speed < -this.maxSpeed) {
-            this.speed = -this.maxSpeed;
+        if (this.speed < -this.maxSpeed / 2) {
+            this.speed = -this.maxSpeed / 2;
         }
 
         if (this.speed > 0) {
             this.speed -= this.friction;
         }
-
         if (this.speed < 0) {
             this.speed += this.friction;
         }
-
         if (Math.abs(this.speed) < this.friction) {
             this.speed = 0;
         }
@@ -121,10 +117,9 @@ class Car {
     }
 
     draw(ctx, color, drawSensor = false) {
+        ctx.fillStyle = color;
         if (this.damaged) {
             ctx.fillStyle = 'gray';
-        } else {
-            ctx.fillStyle = color;
         }
         ctx.beginPath();
         ctx.moveTo(this.polygon[0].x, this.polygon[0].y);

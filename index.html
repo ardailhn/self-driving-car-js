@@ -10,6 +10,7 @@
 <body>
     <canvas id="carCanvas"></canvas>
     <div id="verticalButtons">
+        <button id='autoSaveBtn' onclick="autoSaveToggle()"></button>
         <button onclick="save()">Save</button>
         <button onclick="discard()">Discard</button>
     </div>
@@ -22,6 +23,12 @@
     <script src="controls.js"></script>
     <script src="car.js"></script>
     <script src="main.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const autoSaveBtn = document.getElementById('autoSaveBtn');
+            autoSaveBtn.innerText = 'Auto Save ' + (autoSave ? 'Open' : 'Close');
+        })
+    </script>
 </body>
 
 </html>
